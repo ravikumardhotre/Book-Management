@@ -4,7 +4,7 @@ const reviewModel = require("../models/reviewModel.js");
 const userModel = require("../models/userModel")
 const validate = require("../validation/validator")
 
-//const createBook = async (req, res) => {
+
 const createBook = async function (req, res) {
     try {
         const requestBody = req.body;
@@ -74,7 +74,7 @@ const createBook = async function (req, res) {
         const bookData = await bookModel.create({
             title, excerpt, userId, ISBN, category, subcategory, releasedAt: moment(releasedAt).toISOString()
         });
-        res.status(200).send({ status: true, message: ' Book creates Successfully', data: bookData })
+        res.status(201).send({ status: true, message: ' Book creates Successfully', data: bookData })
 
     } catch (error) {
         res.status(500).send({ status: false, msg: error.message })
@@ -113,7 +113,7 @@ const getBooks = async function (req, res) {
         res.status(500).send({ status: false, message: error.message });
     }
 };
-//----------------------------------------------book details by id------------------------------------------------//
+//----------------------------------------------book details by bookId------------------------------------------------//
 
 const bookDetails = async function (req, res) {
     try {
@@ -220,7 +220,7 @@ let deleteBook = async function (req, res) {
     try {
         const bookId = req.params.bookId
         const userIdFromToken = req.userId
-        //let filter = { isDeleted: false }
+       
 
         if (!(validate.isValid(bookId) && validate.isValidObjectId(bookId))) {
             return res.status(400).send({ status: false, msg: "bookId is not valid" })
