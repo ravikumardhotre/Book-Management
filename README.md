@@ -1,4 +1,3 @@
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%23D7F72C&size=28&center=true&lines=Books+Management+System..)](https://git.io/typing-svg)
 
 ### Key points
 - Create a group database `groupXDatabase`. You can clean the db you previously used and resue that.
